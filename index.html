@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Counter App</h1>
+        <p>Count: <span id="count">0</span></p>
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        class Counter {
+            constructor() {
+                this.count = 0;
+                this.countDisplay = document.getElementById('count');
+                this.incrementButton = document.getElementById('increment');
+                this.decrementButton = document.getElementById('decrement');
+                this.resetButton = document.getElementById('reset');
+
+                this.incrementButton.addEventListener('click', () => this.increment());
+                this.decrementButton.addEventListener('click', () => this.decrement());
+                this.resetButton.addEventListener('click', ()=> this.reset());
+
+                this.updateDisplay();
+            }
+
+            increment() {
+                this.count++;
+                this.updateDisplay();
+            }
+
+            decrement() {
+                this.count--;
+                this.updateDisplay();
+            }
+
+            reset(){
+                this.count = 0;
+                this.updateDisplay();
+            }
+
+            updateDisplay() {
+                this.countDisplay.textContent = this.count;
+            }
+        }
+
+        const counter = new Counter();
+    </script>
+
+
+</body>
+</html>
